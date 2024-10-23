@@ -35,6 +35,11 @@ public class AzureAppConfigurationClient
     {
     }
 
+    public string GetConnectionString()
+    {
+        return $"Endpoint=https://{_hostName}.azconfig.io;Id={_credential};Secret={_secret}";
+    }
+
     public static void SetEnvironmentVariables(string hostName, string credential, string secret)
     {
         Environment.SetEnvironmentVariable(AzureAppConfigHostEnvVariableName, hostName, EnvironmentVariableTarget.Process);
