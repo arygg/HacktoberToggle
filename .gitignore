@@ -1,0 +1,40 @@
+# Build output
+bin/
+obj/
+
+# Local publish output
+Publish/
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.psess
+*.vsp
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+
+# NuGet
+packages/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+
+# Build & publish
+*.pubxml
+*.publishsettings
+
+
+# NCrunch
+*.ncrunch*.user
+.NCrunch_*
+_NCrunch_*
+*.crunch.xml
+nCrunchTemp_*
+
+AzuriteData/
