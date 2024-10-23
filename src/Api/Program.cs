@@ -27,6 +27,7 @@ namespace Api
                       // Configure to reload configuration if the registered sentinel key is modified
                       .ConfigureRefresh(refreshOptions =>
                             refreshOptions.Register("API:Sentinel", refreshAll: true));
+                            //.SetRefreshInterval(TimeSpan.FromSeconds(30)));
 
                 options.UseFeatureFlags(featureFlagOptions =>
                 {
@@ -59,6 +60,9 @@ namespace Api
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+
+            // Use Azure App Configuration middleware to refresh settings on each request.
+            app.UseAzureAppConfiguration();
 
             // Configure routes
             app.AddApiEndpoints(); 
