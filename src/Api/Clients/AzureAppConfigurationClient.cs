@@ -37,9 +37,9 @@ public class AzureAppConfigurationClient
 
     public static void SetEnvironmentVariables(string hostName, string credential, string secret)
     {
-        Environment.SetEnvironmentVariable(AzureAppConfigHostEnvVariableName, hostName, EnvironmentVariableTarget.User);
-        Environment.SetEnvironmentVariable(AzureAppConfigCredentialEnvVariableName, credential, EnvironmentVariableTarget.User);
-        Environment.SetEnvironmentVariable(AzureAppConfigSecretEnvVariableName, secret, EnvironmentVariableTarget.User);
+        Environment.SetEnvironmentVariable(AzureAppConfigHostEnvVariableName, hostName, EnvironmentVariableTarget.Process);
+        Environment.SetEnvironmentVariable(AzureAppConfigCredentialEnvVariableName, credential, EnvironmentVariableTarget.Process);
+        Environment.SetEnvironmentVariable(AzureAppConfigSecretEnvVariableName, secret, EnvironmentVariableTarget.Process);
     }
 
     public static (bool exists, string message) GetConfiguredConnectionDetails()
@@ -58,7 +58,7 @@ public class AzureAppConfigurationClient
 
     private static string ReadEnvironmentVariable(string key)
     {
-        return Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.User);
+        return Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process);
     }
 
     public async Task<KeyValueResponse> GetAllKeys()
